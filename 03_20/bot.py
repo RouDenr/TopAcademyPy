@@ -35,10 +35,11 @@ async def sayMyName(message : Message, state : FSMContext):
     await message.reply(f"Your name {user_data['username']}!!")
     # await message.reply(f"Your name {message.from_user.first_name}!!")
 
+@disp.message_handler(commands=['change_name'], state=MyStates.stable)
+async def changeMyName(message : Message, state : FSMContext):
+    await message.reply("Введите новое имя")
+    await MyStates.readName.set()
 
 @disp.message_handler(content_types='text')
 async def textHandler(message:Message) :
     await message.answer(message.text)
-
-if __name__ == '__main__':
-    executor.start_polling(disp, skip_updates=True)
