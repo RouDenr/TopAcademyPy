@@ -4,6 +4,9 @@
 def two_sum(arr, sum):
     i = 0
     j = 1
+
+    # some work
+
     return [i, j]
 
 arr = [1, 4, -2, 6, 7]
